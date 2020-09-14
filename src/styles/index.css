@@ -1,0 +1,242 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --background: black;
+  --note: rgb(27, 27, 27);
+  --body-text: rgb(131, 131, 131);
+  /* --secondary-text: rgb(102, 102, 102); */
+  --header-text: white;
+  --buttons: orange;
+  --notes-gap: 0.7em;
+}
+
+html {
+  overflow-y: scroll;
+}
+
+a, textarea, button, [type="text"] {
+  font-family: inherit;
+  border: none;
+  resize: none;
+  font-size: inherit;
+  text-decoration: none;
+  color: inherit;
+  background-color: inherit;
+  outline: none;
+}
+
+[type="checkbox"] {
+  outline: none;
+}
+
+body {
+  font-family: Nunito;
+  background-color: var(--background);
+}
+
+.app-container {
+  width: 100%;
+  max-width: 800px;
+  margin: auto;
+  padding: 0 0.7em 0.7em 0.7em;
+  position: relative;
+  background-color: var(--background);
+  min-height: 100vh;
+}
+
+.navbar {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: sticky;
+  top: 0;
+  padding: 0.5em 0;
+  background-color: var(--background);
+  color: var(--header-text);
+}
+
+.nav-link {
+  margin: 0 1em;
+  font-size: 1.4em;
+  font-weight: bold;
+}
+
+.active {
+  color: var(--buttons);
+}
+
+.search-bar {
+  width: 100%;
+  padding: 0.7em 1.5em;
+  border-radius: 100px;
+  outline: none;
+  border: none;
+  background-color: var(--note);
+  color: var(--header-text);
+  font-size: 1.1em;
+  display: flex;
+  align-items: baseline;
+  margin-top: 2px;
+  margin-bottom: 0.7em;
+}
+
+.search-bar i {
+  margin-right: 0.7em;
+}
+
+.search-bar::placeholder {
+  color: var(--body-text)
+}
+
+.search-bar input {
+  flex-grow: 1;
+}
+
+.search-bar:focus-within {
+  box-shadow: 0 0 0 2px var(--buttons);
+}
+
+.modal {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  margin: 0 -0.5em;
+}
+
+.to-do-box {
+  display: flex;
+  background-color: var(--note);
+  color: var(--header-text);
+  padding: 1.5em;
+  border-radius: 20px;
+  position: sticky;
+  top: 30%;
+}
+
+.time {
+  font-size: 0.7em;
+  color: var(--body-text);
+}
+
+.length {
+  margin-left: 0.5em;
+  font-size: 0.7em;
+  color: var(--body-text);
+}
+
+.note-nav {
+  display: flex;
+  justify-content: space-between;
+  color: var(--buttons);
+}
+
+.remove-button {
+  color: var(--buttons);
+  cursor: pointer;
+  margin-left: 1em;
+}
+
+.note-info {
+  display: flex;
+  margin-top: 1em;
+}
+
+.to-do-item {
+  background: var(--note);
+  color: var(--header-text);
+  border-radius: 10px;
+  margin-bottom: 0.5em;
+  display: flex;
+  font-size: 1.1em;
+  width: 100%;
+  padding: 1em;
+  align-items: baseline;
+}
+
+.to-do-text {
+  flex-grow: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.undone {
+  color: var(--body-text);
+  text-decoration-line: line-through;
+}
+
+.to-do-checkbox {
+  margin-right: 0.5em;
+}
+
+.new-button-wrapper {
+  height: 0;
+  width: 50px;
+  position: sticky;
+  top: 90%;
+  left: 100%;
+}
+
+.new-button {
+  background-color: var(--buttons);
+  color: var(--header-text);
+  border-radius: 50%;
+  font-size: 1.5em;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.to-do-editor {
+  width: 100%;
+}
+
+.note-textbox {
+  width: 100%;
+  margin-top: 0.5em;
+  color: var(--header-text);
+}
+
+.done-button {
+  display: block;
+  color: var(--buttons);
+  cursor: pointer;
+  margin-left: auto;
+  font-weight: bold;
+  margin-left: 1em;
+}
+
+.note-text {
+  max-height: 11em;
+  overflow: hidden;
+  overflow-wrap: break-word;
+  /* font-size: 1.1em; */
+  margin-bottom: 0.8em;
+  color: var(--body-text);
+}
+
+.note-text::first-line {
+  color: var(--header-text);
+  font-weight: bold;
+}
+
+.note-thumbnail {
+  width: 100%;
+  display: inline-block;
+  padding: 1.2em;
+  margin-bottom: var(--notes-gap);
+  background-color: var(--note);
+  border-radius: 10px;
+}
+
+.notes {
+  column-width: 9em;
+  column-gap: var(--notes-gap);
+}
